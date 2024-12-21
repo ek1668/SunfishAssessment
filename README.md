@@ -58,6 +58,9 @@ Request Body:
     "prior_pregnancies": 1, // Number of prior pregnancies (integer).
     "prior_live_births": 1 // Number of prior live births (integer).
 }
+
+headers:
+    'Content-Type':'application/json'
 ```
 ```bash
 Response:
