@@ -1,19 +1,22 @@
-Flask IVF Calculation API
+# Flask IVF Calculation API
 
-This API is built with Flask and is designed to calculate IVF success metrics based on user-provided medical and demographic data. The application is containerized using Docker and exposes the main endpoint at http://127.0.0.1:5000/calculate_ivf/.
+This API is built with Flask and is designed to calculate IVF success metrics based on user-provided medical and demographic data. The application is containerized using Docker and exposes the main endpoint at [http://127.0.0.1:5000/calculate_ivf/](http://127.0.0.1:5000/calculate_ivf/).
 
-Files Included
-    app.py: The main Flask application.
-    Dockerfile: Configuration for containerizing the app.
-    requirements.txt: Dependencies for the Flask API.
-    ivf_success_formulas.csv
+## Files Included
 
-Running the API
+- **app.py**: The main Flask application.
+- **Dockerfile**: Configuration for containerizing the app.
+- **requirements.txt**: Dependencies for the Flask API.
+- **ivf_success_formulas.csv**
 
-1. Build the Docker Image:
-    Clone the repository and navigate to the project directory:
+## Running the API
 
-    docker build -t sunfish-image .
+### 1. Build the Docker Image:
+
+Clone the repository and navigate to the project directory:
+
+```bash
+docker build -t sunfish-image .
 
 2. Run the Docker Container:
     Run the container, exposing port 5000:
@@ -30,10 +33,12 @@ POST /calculate_ivf/
 Description:
 Calculates IVF success metrics based on the user’s medical and demographic information.
 
-Request Body:
-    The API requires the following JSON fields(with value samples) to be sent in a POST request:
+
 
 ```
+```bash
+Request Body:
+    The API requires the following JSON fields(with value samples) to be sent in a POST request:
 {
     "user_age": 32, // Age of the user (integer).
     "user_weight_in_lbs": 150, // Weight of the user in pounds (integer).
@@ -54,8 +59,11 @@ Request Body:
     "prior_live_births": 1 // Number of prior live births (integer).
 }
 ```
-
+```bash
 Response:
 On success, the API returns:
 
 {"success_probability":<PERCENTAGE_VALUE>}
+
+##If the 'prior_live_births' exceeds the 'prior_pregnancies', the API will send an error(with a message).
+```
