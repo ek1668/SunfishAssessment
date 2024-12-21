@@ -106,7 +106,7 @@ def calc_ivf():
   if calc_possibility is None:
       return jsonify({"error":"'prior_live_births' cannot exceed 'prior_pregnancies'"})
   
-  return jsonify({"success_probability":calc_possibility})
+  return jsonify({"success_probability":f"{calc_possibility}%"})
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)
