@@ -3,28 +3,29 @@ Flask IVF Calculation API
 This API is built with Flask and is designed to calculate IVF success metrics based on user-provided medical and demographic data. The application is containerized using Docker and exposes the main endpoint at http://127.0.0.1:5000/calculate_ivf/.
 
 Files Included
-app.py: The main Flask application.
-Dockerfile: Configuration for containerizing the app.
-requirements.txt: Dependencies for the Flask API.
+    app.py: The main Flask application.
+    Dockerfile: Configuration for containerizing the app.
+    requirements.txt: Dependencies for the Flask API.
+    ivf_success_formulas.csv
 
 Running the API
 
-1. Build the Docker Image
-   Clone the repository and navigate to the project directory:
+1. Build the Docker Image:
+    Clone the repository and navigate to the project directory:
 
     docker build -t sunfish-image .
 
-2. Run the Docker Container
-   Run the container, exposing port 5000:
+2. Run the Docker Container:
+    Run the container, exposing port 5000:
 
     docker run -p 5000:5000 sunfish-image
 
-3. Access the API
-   Once the container is running, the API can be accessed at:
+3. Access the API:
+    Once the container is running, the API can be accessed at:
 
     http://127.0.0.1:5000/calculate_ivf/
 
-API Endpoints
+API Endpoint
 POST /calculate_ivf/
 Description:
 Calculates IVF success metrics based on the user’s medical and demographic information.
